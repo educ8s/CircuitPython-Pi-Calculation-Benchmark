@@ -1,6 +1,3 @@
-# Lilygo ESP32 S2 Version
-# http://educ8s.tv/part/esp32s2
-
 import board,busio
 import terminalio
 import time
@@ -53,18 +50,27 @@ def drawPercent(percent):
 def drawEmptyProgressBar():
     progressBar = Rect(4, 60, 120, 20, outline=0x00ffff, stroke=3)
     splash.append(progressBar)
+    
+def displaySplashScreen(group):
+    bitmap = displayio.OnDiskBitmap("/splash.bmp")
+    tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
+    group.append(tile_grid)
+    sleep(2)
+    
 
 displayio.release_displays()
 
 spi = busio.SPI(clock=clk_pin, MOSI=mosi_pin)
 
-display_bus = displayio.FourWire(spi, command=board.IO37, chip_select=board.IO34, reset=board.IO38)
+display_bus = displayio.FourWire(spi, command=dc_pin, chip_select=cs_pin, reset=reset_pin)
 
 display = ST7735R(display_bus, width=128, height=160)
 
 # Make the display context
 splash = displayio.Group()
 display.show(splash)
+
+displaySplashScreen(splash)
 
 color_bitmap = displayio.Bitmap(128, 160, 1)
 color_palette = displayio.Palette(1)
@@ -77,7 +83,7 @@ drawEmptyProgressBar()
 
 drawTitle()
 start_time = time.monotonic()
-pi = calculate_pi(2500)
+pi = calculate_pi(1500)
 end_time = time.monotonic()
 execution_time = round(end_time - start_time,4)
 

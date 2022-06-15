@@ -52,6 +52,13 @@ def drawPercent(percent):
 def drawEmptyProgressBar():
     progressBar = Rect(4, 60, 120, 20, outline=0x00ffff, stroke=3)
     splash.append(progressBar)
+    
+def displaySplashScreen(group):
+    bitmap = displayio.OnDiskBitmap("/splash.bmp")
+    tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
+    group.append(tile_grid)
+    sleep(2)
+    
 
 displayio.release_displays()
 
@@ -65,6 +72,8 @@ display = ST7735R(display_bus, width=128, height=160)
 splash = displayio.Group()
 display.show(splash)
 
+displaySplashScreen(splash)
+
 color_bitmap = displayio.Bitmap(128, 160, 1)
 color_palette = displayio.Palette(1)
 color_palette[0] = 0x000000 
@@ -76,7 +85,7 @@ drawEmptyProgressBar()
 
 drawTitle()
 start_time = time.monotonic()
-pi = calculate_pi(2500)
+pi = calculate_pi(1500)
 end_time = time.monotonic()
 execution_time = round(end_time - start_time,4)
 
