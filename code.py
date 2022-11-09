@@ -1,4 +1,4 @@
-# CircuitPython PI Benchmark
+# CircuitPython PI Benchmark Latest Version for all boards
 
 import board,busio, os, gc, time, terminalio, displayio
 from adafruit_st7735r import ST7735R
@@ -75,13 +75,13 @@ splash.insert(0, bg_sprite)
 drawEmptyProgressBar()
 
 drawTitle()
+
 start_time = time.monotonic()
 pi = calculate_pi(20000)
 end_time = time.monotonic()
 execution_time = round(end_time - start_time,4)
 
 drawResult(pi)
-
 drawTime(execution_time)
 
 while True:
