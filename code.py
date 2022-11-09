@@ -1,6 +1,6 @@
 # CircuitPython PI Benchmark Latest Version for all boards
 
-import board,busio, os, gc, time, terminalio, displayio
+import board,busio, os, time, terminalio, displayio
 from adafruit_st7735r import ST7735R
 from adafruit_display_text import label
 from adafruit_display_shapes.rect import Rect
