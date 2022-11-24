@@ -4,7 +4,7 @@ This is a CicruitPython script I use to test the performance of various microcon
 
 # Full Instructions Video
 <p align="center">
-  <img src="preview.jpg" alt="Final Result" width="640">
+  <img src="preview.jpg" alt="Final Result" width="840">
 </p>
 
 <p align="center">
