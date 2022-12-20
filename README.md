@@ -1,13 +1,23 @@
 # CircuitPython-Pi-Calculation-Benchmark
 This is a CicruitPython script I use to test the performance of various microcontrollers using an ST7735 display to display the results.
 
-<p align="center">
-  <img src="preview.jpg" alt="Final Result" width="640">
-</p>
 
 # Full Instructions Video
+<p align="center">
+  <img src="preview.jpg" alt="Final Result" width="840">
+</p>
 
-Watch the video here: https://www.youtube.com/watch?v=bTYQ_Jrpz6Y
+<p align="center">
+🎥 <a href="https://www.youtube.com/watch?v=bTYQ_Jrpz6Y">Video Tutorial on YouTube</a>
+</p>
+<br>
+<br>
+<p align="center">
+| 📺 <a href="https://www.youtube.com/educ8s">YouTube</a>
+| 🌍 <a href="http://www.educ8s.tv">Website</a> | <br>
+</p>
+
+
 
 # Parts Needed
 
