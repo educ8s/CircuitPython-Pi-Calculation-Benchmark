@@ -1,12 +1,14 @@
 # CircuitPython PI Benchmark Latest Version for all boards
 
-import board, busio, os, time, terminalio, displayio
+import board, busio, os, time, terminalio, displayio, microcontroller
 from adafruit_st7735r import ST7735R
 from adafruit_display_text import label
 from adafruit_display_shapes.rect import Rect
 
 board_type = os.uname().machine
 print(f"Board: {board_type}")
+print(f"Cpu Frequency: {microcontroller.cpu.frequency/1000000} MHz")
+
 
 if 'Pico' in board_type:
     clk_pin, mosi_pin, reset_pin, dc_pin, cs_pin = board.GP18, board.GP19, board.GP16, board.GP20, board.GP17
@@ -77,7 +79,7 @@ drawEmptyProgressBar()
 drawTitle()
 
 start_time = time.monotonic()
-pi = calculate_pi(20000)
+pi = calculate_pi(60000)
 end_time = time.monotonic()
 execution_time = round(end_time - start_time,4)
 
